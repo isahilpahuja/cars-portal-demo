@@ -1,0 +1,48 @@
+<div class="container-fluid">
+  <div class="row ml-1 mr-1 bg-primary">
+    <div class="card w-100">
+      <div class="card-body bg-primary">
+        <div class="row">
+          <div class="col-10">
+            <h5 class="card-title">Used Vehicles for Sale</h5>
+          </div>
+          <div class="col-2">
+            <label>Sort By</label>
+            <select class="custom-select">
+              <option value='2019'>price: highest</option>
+              <option value='2018'>price: lowest</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3 border mt-2">
+      <div class="form-group">
+        <label>Year</label>
+        <select class="custom-select">
+          <option value='2019'>2019</option>
+          <option value='2018'>2018</option>
+          <option value='2017'>2017</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary">Search</button>
+    </div>
+    <div class="col-9">
+      <div *ngFor="let car of carsList">
+        <div class="card flex-row flex-wrap mt-2">
+          <div class="card-header border-0 w-50">
+            <img class="img-fluid" src="./assets/images/{{car.picture}}" alt="">
+          </div>
+          <div class="card-block px-2">
+            <h4 class="card-title">{{car.price}}</h4>
+            <p class="card-text">{{car.makeYear}} {{car.makeName}} {{car.model}}</p>
+            <p class="card-text">{{car.makeName}} {{car.city}} - {{car.phone}}</p>
+            <a href="#" class="btn btn-primary mb-1">Check Availability</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

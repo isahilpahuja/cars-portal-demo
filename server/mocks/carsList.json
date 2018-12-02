@@ -1,0 +1,73 @@
+{
+  "cars": [{
+      "id": 1,
+      "model": "570S Coupe",
+      "makeName": "McLaren",
+      "makeYear": "2015",
+      "phone": "888-000-1234",
+      "price": "$293,459",
+      "picture": "mclaren-600lt-review-ultrawide-1-2500x1250.jpg",
+      "city": "Chicago"
+    },
+    {
+      "id": 2,
+      "model": "ES 350 Base",
+      "makeName": "Lexus",
+      "makeYear": "2015",
+      "phone": "888-000-1234",
+      "price": "$48,459",
+      "picture": "lexus-nx300h.jpg",
+      "city": "Texas"
+    },
+    {
+      "id": 3,
+      "model": "ExplorerXLT",
+      "makeName": "Ford",
+      "makeYear": "2015",
+      "phone": "888-000-1234",
+      "price": "$39,244",
+      "picture": "ford-explorer.jpg",
+      "city": "Orlando"
+    },
+    {
+      "id": 4,
+      "model": "McLaren 570S Coupe",
+      "makeName": "McLaren",
+      "makeYear": "2015",
+      "phone": "888-000-1234",
+      "price": "$293,459",
+      "picture": "mclaren-600lt-review-ultrawide-1-2500x1250.jpg",
+      "city": "Orlando"
+    },
+    {
+      "id": 5,
+      "model": "McLaren 570S Coupe",
+      "makeName": "McLaren",
+      "makeYear": "2015",
+      "phone": "888-000-1234",
+      "price": "$293,459",
+      "picture": "mclaren-600lt-review-ultrawide-1-2500x1250.jpg",
+      "city": "Orlando"
+    },
+    {
+      "id": 6,
+      "model": "McLaren 570S Coupe",
+      "makeName": "McLaren",
+      "makeYear": "2015",
+      "phone": "888-000-1234",
+      "price": "$293,459",
+      "picture": "mclaren-600lt-review-ultrawide-1-2500x1250.jpg",
+      "city": "Orlando"
+    },
+    {
+      "id": 7,
+      "model": "McLaren 570S Coupe",
+      "makeName": "McLaren",
+      "makeYear": "2015",
+      "phone": "888-000-1234",
+      "price": "$293,459",
+      "picture": "mclaren-600lt-review-ultrawide-1-2500x1250.jpg",
+      "city": "Orlando"
+    }
+  ]
+}
