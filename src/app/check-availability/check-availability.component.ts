@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-check-availability',
@@ -7,9 +10,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckAvailabilityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
   }
 
+  send() {
+    alert('Message Sent!');
+    this.router.navigate(['./used-car-portal']);
+  }
 }

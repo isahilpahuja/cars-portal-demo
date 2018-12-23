@@ -8,12 +8,16 @@ import { SearchresultsComponent } from './searchresults/searchresults.component'
 import { CheckAvailabilityComponent } from './check-availability/check-availability.component';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SellYourCarComponent } from './sell-your-car/sell-your-car.component';
+import { ServiceAndRepairComponent } from './service-and-repair/service-and-repair.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchresultsComponent,
-    CheckAvailabilityComponent
+    CheckAvailabilityComponent,
+    SellYourCarComponent,
+    ServiceAndRepairComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { catchError, map, tap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-searchresults',
@@ -10,7 +11,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class SearchresultsComponent implements OnInit {
 
   carsList: any;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
     this.getcarsList();
@@ -26,5 +27,9 @@ export class SearchresultsComponent implements OnInit {
           alert('Oops!! Something Went Wrong!!');
         }
       );
+  }
+
+  checkAvailability(car) {
+    this.router.navigate(['./check-availability']);
   }
 }

@@ -31,42 +31,42 @@
     },
     {
       "id": 4,
-      "model": "McLaren 570S Coupe",
-      "makeName": "McLaren",
+      "model": "Huracan",
+      "makeName": "Lamborghini",
       "makeYear": "2015",
       "phone": "888-000-1234",
-      "price": "$293,459",
-      "picture": "mclaren-600lt-review-ultrawide-1-2500x1250.jpg",
-      "city": "Orlando"
+      "price": "$993,459",
+      "picture": "lambo-huracan.jpg",
+      "city": "Chicago"
     },
     {
       "id": 5,
-      "model": "McLaren 570S Coupe",
-      "makeName": "McLaren",
-      "makeYear": "2015",
+      "model": "488 GTB",
+      "makeName": "Ferrari",
+      "makeYear": "2017",
       "phone": "888-000-1234",
-      "price": "$293,459",
-      "picture": "mclaren-600lt-review-ultrawide-1-2500x1250.jpg",
-      "city": "Orlando"
+      "price": "$648,659",
+      "picture": "ferrari-488-gtb.jpg",
+      "city": "Texas"
     },
     {
       "id": 6,
-      "model": "McLaren 570S Coupe",
-      "makeName": "McLaren",
-      "makeYear": "2015",
+      "model": "i8Roadster",
+      "makeName": "BMW",
+      "makeYear": "2018",
       "phone": "888-000-1234",
-      "price": "$293,459",
-      "picture": "mclaren-600lt-review-ultrawide-1-2500x1250.jpg",
+      "price": "$439,244",
+      "picture": "bmw-i8.jpg",
       "city": "Orlando"
     },
     {
       "id": 7,
-      "model": "McLaren 570S Coupe",
-      "makeName": "McLaren",
-      "makeYear": "2015",
+      "model": "Viper",
+      "makeName": "Dodge",
+      "makeYear": "1997",
       "phone": "888-000-1234",
-      "price": "$293,459",
-      "picture": "mclaren-600lt-review-ultrawide-1-2500x1250.jpg",
+      "price": "$93,450",
+      "picture": "dodge-viper.jpg",
       "city": "Orlando"
     }
   ]

@@ -1,16 +1,18 @@
 <div class="container-fluid">
-  <div class="row ml-1 mr-1 bg-primary">
+  <div class="row bg-secondary">
     <div class="card w-100">
-      <div class="card-body bg-primary">
+      <div class="card-body bg-secondary">
         <div class="row">
           <div class="col-10">
-            <h5 class="card-title">Used Vehicles for Sale</h5>
+            <h5 class="card-title text-white">Used Vehicles for Sale</h5>
           </div>
           <div class="col-2">
-            <label>Sort By</label>
+            <label class="text-white">Sort By</label>
             <select class="custom-select">
-              <option value='2019'>price: highest</option>
-              <option value='2018'>price: lowest</option>
+              <option value='2019'>Price: highest</option>
+              <option value='2018'>Price: lowest</option>
+              <option value='pl'>Year: Newest</option>
+              <option value='pl'>Year: Oldest</option>
             </select>
           </div>
         </div>
@@ -18,8 +20,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-3 border mt-2">
-      <div class="form-group">
+    <div class="col-3 border mt-2 p-0">
+      <div class="bg-secondary">
+        <h5 class="pl-1 text-white text-center">Filter Results</h5>
+      </div>
+      <div class="form-group p-1">
         <label>Year</label>
         <select class="custom-select">
           <option value='2019'>2019</option>
@@ -27,7 +32,16 @@
           <option value='2017'>2017</option>
         </select>
       </div>
-      <button type="button" class="btn btn-primary">Search</button>
+      <div class="form-group p-1">
+        <label>Make</label>
+        <div>
+          <input type="checkbox">
+          <label>Acura</label>
+        </div>
+      </div>
+      <div class="form-group p-1">
+        <button type="button" class="btn btn-primary">Search</button>
+      </div>
     </div>
     <div class="col-9">
       <div *ngFor="let car of carsList">
@@ -39,7 +53,7 @@
             <h4 class="card-title">{{car.price}}</h4>
             <p class="card-text">{{car.makeYear}} {{car.makeName}} {{car.model}}</p>
             <p class="card-text">{{car.makeName}} {{car.city}} - {{car.phone}}</p>
-            <a href="#" class="btn btn-primary mb-1">Check Availability</a>
+            <button type="button" class="btn btn-primary mb-1" (click)="checkAvailability(car)">Check Availability</button>
           </div>
         </div>
       </div>
