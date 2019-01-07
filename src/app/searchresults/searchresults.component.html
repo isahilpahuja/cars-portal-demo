@@ -8,11 +8,8 @@
           </div>
           <div class="col-2">
             <label class="text-white">Sort By</label>
-            <select class="custom-select">
-              <option value='2019'>Price: highest</option>
-              <option value='2018'>Price: lowest</option>
-              <option value='pl'>Year: Newest</option>
-              <option value='pl'>Year: Oldest</option>
+            <select class="custom-select" [(ngModel)]="sortCriteria" (change)="onSortChange($event)">
+              <option *ngFor="let sort of sortData" [ngValue]="sort">{{sort.column}}- {{sort.orderDesc}}</option>
             </select>
           </div>
         </div>
@@ -26,37 +23,52 @@
       </div>
       <div class="form-group p-1">
         <label>Year</label>
-        <select class="custom-select">
-          <option value='2019'>2019</option>
-          <option value='2018'>2018</option>
-          <option value='2017'>2017</option>
+        <select class="custom-select" [(ngModel)]="year" (change)="onYearChange($event)">
+          <option *ngFor="let year of yearList" [ngValue]="year.value">{{year.desc}}</option>
         </select>
       </div>
       <div class="form-group p-1">
         <label>Make</label>
-        <div>
-          <input type="checkbox">
-          <label>Acura</label>
+        <div *ngFor="let makes of makeList">
+          <div class="pl-1">
+            <input type="checkbox" [(ngModel)]="makes.id" (change)="onMakeSelect($event,makes)">
+            <label class="pl-1">{{makes}}</label>
+          </div>
         </div>
       </div>
       <div class="form-group p-1">
-        <button type="button" class="btn btn-primary">Search</button>
+        <button type="button" class="btn btn-primary" (click)="search()">Search</button>
       </div>
     </div>
     <div class="col-9">
       <div *ngFor="let car of carsList">
         <div class="card flex-row flex-wrap mt-2">
           <div class="card-header border-0 w-50">
-            <img class="img-fluid" src="./assets/images/{{car.picture}}" alt="">
+            <img class="img-fluid" src="./assets/images/{{car.picture}}" alt="{{car.picture}}">
           </div>
-          <div class="card-block px-2">
-            <h4 class="card-title">{{car.price}}</h4>
-            <p class="card-text">{{car.makeYear}} {{car.makeName}} {{car.model}}</p>
-            <p class="card-text">{{car.makeName}} {{car.city}} - {{car.phone}}</p>
-            <button type="button" class="btn btn-primary mb-1" (click)="checkAvailability(car)">Check Availability</button>
+          <div class="card-block w-50 px-2 pt-5">
+            <h4 class="card-title">{{car.price | currency}}</h4>
+            <p class="card-text">{{car.year}} {{car.make}} {{car.model}}</p>
+            <!-- <p class="card-text">{{car.makeName}} {{car.city}} - {{car.phone}}</p> -->
+            <div class="row">
+              <div class="col-5">Color : {{car.color}}</div>
+              <div class="col-7">Transmission : {{car.transmission}}</div>
+            </div>
+            <div class="row">
+              <div class="col-5">Body : {{car.body}}</div>
+              <div class="col-7">Drivetrain : {{car.drivetrain}}</div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12 text-center">
+                <button type="button" class="btn btn-primary" (click)="checkAvailability(car)">Check Availability</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="spinner-container" *ngIf="isShowSpinner">
+    <p-progressSpinner class="spinner-loader"></p-progressSpinner>
   </div>
 </div>

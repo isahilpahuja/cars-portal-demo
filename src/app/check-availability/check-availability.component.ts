@@ -10,13 +10,29 @@ import { Router } from '@angular/router';
 })
 export class CheckAvailabilityComponent implements OnInit {
 
+  model: any;
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    this.reset();
   }
 
-  send() {
+
+  send(checkForm) {
+    if (!checkForm.form.valid) {
+      alert('All Fields Are Mandatory');
+    }
     alert('Message Sent!');
     this.router.navigate(['./used-car-portal']);
+  }
+
+  reset() {
+    this.model = {
+      firstname: '',
+      lastname: '',
+      email: '',
+      query: '',
+      agree: ''
+    };
   }
 }

@@ -4,30 +4,30 @@
       Check Availability
     </div>
     <div class="card-body">
-      <form>
+      <form (ngSubmit)="send(checkForm)" #checkForm="ngForm">
         <div class="form-group">
           <label for="exampleInputEmail1">First Name</label>
-          <input type="text" class="form-control" placeholder="First Name">
+          <input type="text" required name="firstname" [(ngModel)]="model.firstname" class="form-control" placeholder="First Name">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Last Name</label>
-          <input type="text" class="form-control" placeholder="Last Name">
+          <input type="text" required name="lastname" [(ngModel)]="model.lastname" class="form-control" placeholder="Last Name">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" placeholder="Enter email">
+          <input type="email" required name="email" [(ngModel)]="model.email" class="form-control" placeholder="Enter email">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
         <div class="form-group">
-          <textarea class="form-control" rows="4" [(ngModel)]="query"></textarea>
+          <textarea class="form-control" name="query" rows="4" [(ngModel)]="model.query"></textarea>
         </div>
 
         <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <input type="checkbox" name="agree" [(ngModel)]="model.agree" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Email me new listings for my search.</label>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="send()">Send Message</button>
+        <button type="submit" class="btn btn-primary">Send Message</button>
       </form>
     </div>
 

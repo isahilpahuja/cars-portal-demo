@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SellYourCarComponent } from './sell-your-car/sell-your-car.component';
 import { ServiceAndRepairComponent } from './service-and-repair/service-and-repair.component';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,13 @@ import { ServiceAndRepairComponent } from './service-and-repair/service-and-repa
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    // provide: APP_BASE_HREF,
+    // useValue: window.location.pathname,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

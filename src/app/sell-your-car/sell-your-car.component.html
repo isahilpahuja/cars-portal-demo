@@ -4,30 +4,69 @@
       Sell Your Car
     </div>
     <div class="card-body">
-      <form>
+      <form (ngSubmit)="submit(carForm)" #carForm="ngForm">
         <div class="form-group">
-          <label for="exampleInputEmail1">First Name</label>
-          <input type="text" class="form-control" placeholder="First Name">
+          <label>First Name</label>
+          <input type="text" required name="firstname" [(ngModel)]="model.firstName" class="form-control" placeholder="First Name">
         </div>
         <div class="form-group">
-          <label for="exampleInputEmail1">Last Name</label>
-          <input type="text" class="form-control" placeholder="Last Name">
+          <label>Last Name</label>
+          <input type="text" required name="lastname" [(ngModel)]="model.lastName" class="form-control" placeholder="Last Name">
+        </div>
+        <div class="form-group">
+          <label>Phone No.</label>
+          <input type="number" required name="phone" [(ngModel)]="model.phone" class="form-control" placeholder="Phone No.">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" placeholder="Enter email">
+          <input type="email" required name="email" [(ngModel)]="model.email" class="form-control" placeholder="Enter email">
           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
 
         <div class="form-group">
-          <textarea class="form-control" rows="4" [(ngModel)]="query"></textarea>
+          <label>Model</label>
+          <input type="text" required name="model" [(ngModel)]="model.model" class="form-control" placeholder="Model">
         </div>
 
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Email me new listings for my search.</label>
+        <div class="form-group">
+          <label>Year</label>
+          <input type="number" required name="year" [(ngModel)]="model.year" class="form-control" placeholder="Year">
         </div>
-        <button type="submit" class="btn btn-primary" (click)="send()">Send Message</button>
+
+        <div class="form-group">
+          <label>Make</label>
+          <input type="text" required name="make" [(ngModel)]="model.make" class="form-control" placeholder="Make">
+        </div>
+        <div class="form-group">
+          <label>Trim</label>
+          <input type="text" required name="trim" [(ngModel)]="model.trim" class="form-control" placeholder="Trim">
+        </div>
+        <div class="form-group">
+          <label>Color</label>
+          <input type="text" required name="color" [(ngModel)]="model.color" class="form-control" placeholder="Color">
+        </div>
+        <div class="form-group">
+          <label>Transmission</label>
+          <input type="text" required name="transmission" [(ngModel)]="model.transmission" class="form-control"
+            placeholder="Transmission">
+        </div>
+        <div class="form-group">
+          <label>Drivetrain</label>
+          <input type="text" required name="drivetrain" [(ngModel)]="model.drivetrain" class="form-control" placeholder="Drivetrain">
+        </div>
+        <div class="form-group">
+          <label>Type</label>
+          <input type="text" required name="type" [(ngModel)]="model.type" class="form-control" placeholder="Type">
+        </div>
+        <div class="form-group">
+          <label>Price</label>
+          <input type="number" required name="price" [(ngModel)]="model.price" class="form-control" placeholder="Price">
+        </div>
+        <div class="form-group">
+          <label>Body</label>
+          <input type="text" required name="body" [(ngModel)]="model.body" class="form-control" placeholder="Body">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
 
