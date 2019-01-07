@@ -124,7 +124,19 @@ export class SearchresultsComponent implements OnInit {
       column: this.sortCriteria.column,
       order: this.sortCriteria.order
     };
-    this.http.post('http://localhost:8080/car', request)
+    let sortUrl = '';
+    if (this.sortCriteria.column === 'Price' && this.sortCriteria.order === 'desc') {
+      sortUrl = 'http://localhost:8080/car/sortByPriceDesc';
+    } else if (this.sortCriteria.column === 'Price' && this.sortCriteria.order === 'asc') {
+      sortUrl = 'http://localhost:8080/car/sortByPriceAsc';
+    } else if (this.sortCriteria.column === 'Year' && this.sortCriteria.order === 'desc') {
+      sortUrl = 'http://localhost:8080/car/sortByYearDesc';
+    } else if (this.sortCriteria.column === 'Year' && this.sortCriteria.order === 'asc') {
+      sortUrl = 'http://localhost:8080/car/sortByYearAsc';
+    } else {
+      this.getcarsList();
+    }
+    this.http.get(sortUrl, { responseType: 'json' })
       .pipe(map((response: any) => response)).subscribe(
         (data: any) => {
           this.carsList = data;
@@ -133,6 +145,6 @@ export class SearchresultsComponent implements OnInit {
           alert('Oops!! Something Went Wrong!!');
         }
       );
-    alert(`${this.sortCriteria.column} ${this.sortCriteria.order}`);
+    // alert(`${this.sortCriteria.column} ${this.sortCriteria.order}`);
   }
 }
