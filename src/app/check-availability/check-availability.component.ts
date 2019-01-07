@@ -21,9 +21,10 @@ export class CheckAvailabilityComponent implements OnInit {
   send(checkForm) {
     if (!checkForm.form.valid) {
       alert('All Fields Are Mandatory');
+    } else {
+      alert('Message Sent!');
+      this.router.navigate(['./used-car-portal']);
     }
-    alert('Message Sent!');
-    this.router.navigate(['./used-car-portal']);
   }
 
   reset() {
