@@ -13,8 +13,11 @@ export class SearchresultsComponent implements OnInit {
   carsList: any;
   yearList = [{ value: 0, desc: '--select--' }];
   makeList: any;
+  modelList: any;
   selectedMakeList = [];
+  selectedModelList = [];
   isShowSpinner: boolean;
+  isShowModel: boolean;
   year: Number = 0;
   make: any;
   makeCheckBox: any;
@@ -81,6 +84,26 @@ export class SearchresultsComponent implements OnInit {
         }
       );
   }
+
+  getModelList() {
+    this.isShowSpinner = true;
+    const request = {
+      makes: this.selectedMakeList
+    };
+    this.http.post('http://localhost:8080/car/modelList', request)
+      .pipe(map((response: any) => response)).subscribe(
+        (data: any) => {
+          this.modelList = data;
+          this.isShowSpinner = false;
+          this.isShowModel=true;
+        },
+        err => {
+          this.isShowSpinner = false;
+          alert('Oops!! Something Went Wrong!!');
+        }
+      );
+  }
+
   checkAvailability(car) {
     this.router.navigate(['./check-availability']);
   }
@@ -91,7 +114,8 @@ export class SearchresultsComponent implements OnInit {
     };
     const request = {
       year: this.year ? this.year : '',
-      makes: this.selectedMakeList
+      makes: this.selectedMakeList,
+      models: this.selectedModelList
     };
     this.http.post('http://localhost:8080/car/search', request)
       .pipe(map((response: any) => response)).subscribe(
@@ -105,6 +129,7 @@ export class SearchresultsComponent implements OnInit {
   }
 
   onYearChange(event) {
+    this.search();
   }
   onMakeSelect(event, make) {
     if (event.target.checked) {
@@ -115,7 +140,28 @@ export class SearchresultsComponent implements OnInit {
         this.selectedMakeList.splice(index, 1);
       }
     }
+    if(this.selectedMakeList.length>0){
+      this.getModelList();
+    } else {
+      this.modelList=[];
+      this.selectedModelList=[];
+      this.isShowModel=false;
+    }
+    this.search();
   }
+
+  onModelSelect(event, model) {
+    if (event.target.checked) {
+      this.selectedModelList.push(model);
+    } else {
+      const index = this.selectedModelList.indexOf(model);
+      if (index > -1) {
+        this.selectedModelList.splice(index, 1);
+      }
+    }
+    this.search();
+  }
+
   onSortChange(event) {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -146,5 +192,16 @@ export class SearchresultsComponent implements OnInit {
         }
       );
     // alert(`${this.sortCriteria.column} ${this.sortCriteria.order}`);
+  }
+
+  reset(){
+    this.modelList=[];
+    this.year=0;
+    this.isShowModel=false;
+    this.selectedMakeList = [];
+    this.selectedModelList = [];
+    this.makeList=[];
+    this.getcarsList();
+    this.getMakeList();
   }
 }

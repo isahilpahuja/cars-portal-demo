@@ -36,8 +36,19 @@
           </div>
         </div>
       </div>
+
+      <div *ngIf="isShowModel" class="form-group p-1">
+        <label>Model</label>
+        <div *ngFor="let models of modelList">
+          <div class="pl-1">
+            <input type="checkbox" [(ngModel)]="models.id" (change)="onModelSelect($event,models)">
+            <label class="pl-1">{{models}}</label>
+          </div>
+        </div>
+      </div>
+
       <div class="form-group p-1">
-        <button type="button" class="btn btn-primary" (click)="search()">Search</button>
+        <button type="button" class="btn btn-primary" (click)="reset()">Clear All</button>
       </div>
     </div>
     <div class="col-9">
