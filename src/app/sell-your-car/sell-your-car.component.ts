@@ -53,7 +53,7 @@ export class SellYourCarComponent implements OnInit {
       price: '',
       type: '',
       body: '',
-      picture: '',
+      picture: 'ferrari-488-gtb.jpg',
       phone: ''
     };
   }
